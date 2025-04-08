@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "Ingrdnt",
+    "slug": "ingrdnt",
+    "version": "1.0.0",
+    "sdkVersion": "52.0.0",
+    "experiments": {
+      "newArchEnabled": true
+    },
+    "platforms": ["ios", "android"],
+    "ios": {
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to scan barcodes for product lookup."
+      }
+    },
+    "android": {
+      "permissions": ["CAMERA"]
+    },
+    "jsEngine": "hermes",
+    "experimental": {
+      "newArchEnabled": true
+    }
+  }
+}
