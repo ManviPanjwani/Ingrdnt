@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { Text, Button, useTheme } from 'react-native-paper';
+import { Text, useTheme } from 'react-native-paper';
+import { Camera } from 'expo-camera';
 
 export default function WelcomeScreen({ navigation }) {
   const { colors } = useTheme();
 
+  useEffect(() => {
+    Camera.requestCameraPermissionsAsync();
+  }, []);
+
+  const handleGetStarted = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Scan' }],
+    });
+  };
+
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/plant-welcome.png')} // make sure you have this file!
+        source={require('../../assets/plant-welcome.png')} // make sure this file exists!
         style={styles.image}
       />
 
@@ -19,7 +31,7 @@ export default function WelcomeScreen({ navigation }) {
 
       <TouchableOpacity
         style={[styles.button, { backgroundColor: colors.primary }]}
-        onPress={() => navigation.navigate('AuthIntro')}
+        onPress={handleGetStarted}
       >
         <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>

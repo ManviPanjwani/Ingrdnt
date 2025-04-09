@@ -19,6 +19,14 @@ ios/
 *.xcuserdata/
 *.xcuserstate
 
+# Firebase credentials
+firebase-debug.log
+*.firebaserc
+*.env
+.env.*
+.env.local
+firebase-config.js
+
 # Logs
 npm-debug.log*
 yarn-debug.log*
